@@ -1,0 +1,33 @@
+source ~/.bashrc
+
+alias rss="cd ~/Documents/GitHub/gorss; make run"
+alias pj="cd ~/Documents/Github/"
+alias mb="cd ~/Documents/Github/MagicBus/"
+alias mbcli="cd ~/Documents/Github/MagicBus/magic-api/; eb ssh magicapi-production --force"
+alias setnodepath="export NODE_PATH=/Users/ray/.nvm/versions/node/v9.3.0/lib/node_modules"
+alias comma="pbpaste | tr '\n' ',' | pbcopy; pbpaste"
+alias space="pbpaste | tr '\n' ' ' | pbcopy; pbpaste"
+
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PGHOST=localhost
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
+### set up git tab completion
+### curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+### set up prompt with branch output in red
+### curl -o ~/.git-prompt.sh "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+source ~/.git-prompt.sh
+# PS1='\u@\h \e[0;36m\W\e[m$(__git_ps1 " \e[0;31m[%s]\e[m") \$ '
+PS1='\u:\W$(__git_ps1 "\[\e[32m\][%s]\[\e[0m\]")$ '
+export PATH="/usr/local/sbin:$PATH"
+export HOMEBREW_GITHUB_API_TOKEN=2820027c5915dff5c2f543573ed9d13e93efcb0d
+if [[ -e ~/.password-store/.bash-completion ]]; then
+  . ~/.password-store/.bash-completion
+fi

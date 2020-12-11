@@ -1,0 +1,17 @@
+[user]
+	name = Ray Wu
+	email = raymond.cj.wu@gmail.com
+[core]
+	editor = atom -w
+	excludesfile = /Users/ray/.gitignore_global
+[url "https://"]
+	insteadOf = git://
+[merge]
+	tool = opendiff
+[alias]
+	last = log -1 HEAD
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
